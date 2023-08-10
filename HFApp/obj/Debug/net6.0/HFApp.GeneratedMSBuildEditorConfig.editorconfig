@@ -15,6 +15,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\ODFProjects\HFApp\HFApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/ODFProjects/HFApp/HFApp/Views/Binlookup/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlubG9va3VwXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ODFProjects/HFApp/HFApp/Views/Binlookup/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlubG9va3VwXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ODFProjects/HFApp/HFApp/Views/Binlookup/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlubG9va3VwXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/ODFProjects/HFApp/HFApp/Views/Binlookup/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlubG9va3VwXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/ODFProjects/HFApp/HFApp/Views/Customer/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
