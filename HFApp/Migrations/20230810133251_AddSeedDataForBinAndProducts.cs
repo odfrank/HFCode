@@ -7,44 +7,26 @@
 namespace HFApp.Migrations
 {
     /// <inheritdoc />
-    public partial class AddSeedDataForBinLookupAndProductTables : Migration
+    public partial class AddSeedDataForBinAndProducts : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Inventories",
-                table: "Inventories");
-
-            migrationBuilder.RenameColumn(
-                name: "Id",
-                table: "Inventories",
-                newName: "BinLookupId");
-
-            migrationBuilder.AlterColumn<int>(
+            migrationBuilder.AddColumn<int>(
                 name: "BinLookupId",
                 table: "Inventories",
                 type: "int",
                 nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int")
-                .OldAnnotation("SqlServer:Identity", "1, 1");
+                defaultValue: 0);
 
-            migrationBuilder.AddColumn<int>(
+            migrationBuilder.AddColumn<string>(
                 name: "InventoryId",
                 table: "Inventories",
-                type: "int",
-                nullable: false,
-                defaultValue: 0)
-                .Annotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Inventories",
-                table: "Inventories",
-                column: "InventoryId");
+                type: "nvarchar(max)",
+                nullable: true);
 
             migrationBuilder.CreateTable(
-                name: "BinLookup",
+                name: "BinLookups",
                 columns: table => new
                 {
                     BinLookupId = table.Column<int>(type: "int", nullable: false)
@@ -58,11 +40,11 @@ namespace HFApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BinLookup", x => x.BinLookupId);
+                    table.PrimaryKey("PK_BinLookups", x => x.BinLookupId);
                 });
 
             migrationBuilder.InsertData(
-                table: "BinLookup",
+                table: "BinLookups",
                 columns: new[] { "BinLookupId", "BinNumber", "Description", "Height", "Length", "Location", "Width" },
                 values: new object[,]
                 {
@@ -98,11 +80,7 @@ namespace HFApp.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BinLookup");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Inventories",
-                table: "Inventories");
+                name: "BinLookups");
 
             migrationBuilder.DeleteData(
                 table: "Products",
@@ -160,27 +138,12 @@ namespace HFApp.Migrations
                 keyValue: 11);
 
             migrationBuilder.DropColumn(
-                name: "InventoryId",
+                name: "BinLookupId",
                 table: "Inventories");
 
-            migrationBuilder.RenameColumn(
-                name: "BinLookupId",
-                table: "Inventories",
-                newName: "Id");
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Id",
-                table: "Inventories",
-                type: "int",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int")
-                .Annotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Inventories",
-                table: "Inventories",
-                column: "Id");
+            migrationBuilder.DropColumn(
+                name: "InventoryId",
+                table: "Inventories");
         }
     }
 }

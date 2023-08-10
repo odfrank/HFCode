@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HFApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230809232640_AddSeedDataForBinLookupAndProductTables")]
-    partial class AddSeedDataForBinLookupAndProductTables
+    [Migration("20230810133251_AddSeedDataForBinAndProducts")]
+    partial class AddSeedDataForBinAndProducts
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,7 +56,7 @@ namespace HFApp.Migrations
 
                     b.HasKey("BinLookupId");
 
-                    b.ToTable("BinLookup");
+                    b.ToTable("BinLookups");
 
                     b.HasData(
                         new
@@ -355,11 +355,11 @@ namespace HFApp.Migrations
 
             modelBuilder.Entity("HFApp.Models.Inventory", b =>
                 {
-                    b.Property<int>("InventoryId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InventoryId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("BinLookupId")
                         .HasColumnType("int");
@@ -367,13 +367,16 @@ namespace HFApp.Migrations
                     b.Property<int>("FacilityId")
                         .HasColumnType("int");
 
+                    b.Property<string>("InventoryId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("InventoryId");
+                    b.HasKey("Id");
 
                     b.ToTable("Inventories");
                 });

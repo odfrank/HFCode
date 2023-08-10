@@ -21,6 +21,7 @@ namespace HFApp.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Sale> Sales { get; set; }
         public DbSet<SaleDetails> SaleDetails { get; set; }
+        public DbSet<BinLookup> BinLookups { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -98,27 +99,27 @@ namespace HFApp.Data
                 );
 
             modelBuilder.Entity<Product>().HasData(
-                   new Product { ProductId = 1, ProductName = "Item 1", ProductDescription = "Item 1", Price = 30},
-                   new Product { ProductId = 2, ProductName = "Item 2", ProductDescription = "Item 2", Price = 40},
-                   new Product { ProductId = 3, ProductName = "Item 3", ProductDescription = "Item 3", Price = 5},
-                   new Product { ProductId = 4, ProductName = "Item 4", ProductDescription = "Item 4", Price = 15},
-                   new Product { ProductId = 5, ProductName = "Item 5", ProductDescription = "Item 5", Price = 26},
-                   new Product { ProductId = 6, ProductName = "Item 6", ProductDescription = "Item 6", Price = 50},
-                   new Product { ProductId = 7, ProductName = "Item 7", ProductDescription = "Item 7", Price = 10},
-                   new Product { ProductId = 8, ProductName = "Item 8", ProductDescription = "Item 8", Price = 3},
-                   new Product { ProductId = 9, ProductName = "Item 9", ProductDescription = "Item 9", Price = 14},
-                   new Product { ProductId = 10, ProductName = "Item 10", ProductDescription = "Item 10", Price = 60},
-                   new Product { ProductId = 11, ProductName = "Item 11", ProductDescription = "Item 11", Price = 8}
+                   new Product { ProductId = 1, ProductName = "Item 1", ProductDescription = "Item 1", Price = 30 },
+                   new Product { ProductId = 2, ProductName = "Item 2", ProductDescription = "Item 2", Price = 40 },
+                   new Product { ProductId = 3, ProductName = "Item 3", ProductDescription = "Item 3", Price = 5 },
+                   new Product { ProductId = 4, ProductName = "Item 4", ProductDescription = "Item 4", Price = 15 },
+                   new Product { ProductId = 5, ProductName = "Item 5", ProductDescription = "Item 5", Price = 26 },
+                   new Product { ProductId = 6, ProductName = "Item 6", ProductDescription = "Item 6", Price = 50 },
+                   new Product { ProductId = 7, ProductName = "Item 7", ProductDescription = "Item 7", Price = 10 },
+                   new Product { ProductId = 8, ProductName = "Item 8", ProductDescription = "Item 8", Price = 3 },
+                   new Product { ProductId = 9, ProductName = "Item 9", ProductDescription = "Item 9", Price = 14 },
+                   new Product { ProductId = 10, ProductName = "Item 10", ProductDescription = "Item 10", Price = 60 },
+                   new Product { ProductId = 11, ProductName = "Item 11", ProductDescription = "Item 11", Price = 8 }
                );
 
             modelBuilder.Entity<BinLookup>().HasData(
-                   new BinLookup { BinLookupId = 1, BinNumber = "T345", Description = "Large bin", Location = "Row 2, Slot 1", Width = 50, Height = 10, Length =10 },
-                   new BinLookup { BinLookupId = 2, BinNumber = "T5789", Description = "Small bin", Location = "Row 1, Slot 1", Width = 25, Height = 5, Length =5 },
-                   new BinLookup { BinLookupId = 3, BinNumber = "T9876", Description = "Large bin", Location = "Row 3, Slot 2", Width = 50, Height = 10, Length =10 },
-                   new BinLookup { BinLookupId = 4, BinNumber = "T098", Description = "Medium bin", Location = "Row 3, Slot 1", Width = 30, Height = 7, Length =10 },
-                   new BinLookup { BinLookupId = 5, BinNumber = "T349", Description = "Small bin", Location = "Row 1, Slot 2", Width = 25, Height = 5, Length =5 },
-                   new BinLookup { BinLookupId = 6, BinNumber = "T5789", Description = "Large bin", Location = "Row 4, Slot 5", Width = 50, Height = 10, Length =10 },
-                   new BinLookup { BinLookupId = 7, BinNumber = "T9875", Description = "Large bin", Location = "Row 2, Slot 2", Width = 50, Height = 10, Length =10 }
+                   new BinLookup { BinLookupId = 1, BinNumber = "T345", Description = "Large bin", Location = "Row 2, Slot 1", Width = 50, Height = 10, Length = 10 },
+                   new BinLookup { BinLookupId = 2, BinNumber = "T5789", Description = "Small bin", Location = "Row 1, Slot 1", Width = 25, Height = 5, Length = 5 },
+                   new BinLookup { BinLookupId = 3, BinNumber = "T9876", Description = "Large bin", Location = "Row 3, Slot 2", Width = 50, Height = 10, Length = 10 },
+                   new BinLookup { BinLookupId = 4, BinNumber = "T098", Description = "Medium bin", Location = "Row 3, Slot 1", Width = 30, Height = 7, Length = 10 },
+                   new BinLookup { BinLookupId = 5, BinNumber = "T349", Description = "Small bin", Location = "Row 1, Slot 2", Width = 25, Height = 5, Length = 5 },
+                   new BinLookup { BinLookupId = 6, BinNumber = "T5789", Description = "Large bin", Location = "Row 4, Slot 5", Width = 50, Height = 10, Length = 10 },
+                   new BinLookup { BinLookupId = 7, BinNumber = "T9875", Description = "Large bin", Location = "Row 2, Slot 2", Width = 50, Height = 10, Length = 10 }
                );
         }
     }
