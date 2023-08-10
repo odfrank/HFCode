@@ -4,6 +4,7 @@ using HFApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HFApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230810153810_UpdatedInventoryColumns2")]
+    partial class UpdatedInventoryColumns2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -350,6 +353,34 @@ namespace HFApp.Migrations
                         });
                 });
 
+            modelBuilder.Entity("HFApp.Models.Inventory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BinLookupId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FacilityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("InventorySKU")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Inventories");
+                });
+
             modelBuilder.Entity("HFApp.Models.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -450,135 +481,6 @@ namespace HFApp.Migrations
                             Price = 8m,
                             ProductDescription = "Item 11",
                             ProductName = "Item 11"
-                        });
-                });
-
-            modelBuilder.Entity("HFApp.Models.ProductInventory", b =>
-                {
-                    b.Property<int>("InventoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InventoryId"));
-
-                    b.Property<int>("BinLookupId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FacilityId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("InventorySKU")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("InventoryId");
-
-                    b.ToTable("ProductInventories");
-
-                    b.HasData(
-                        new
-                        {
-                            InventoryId = 1,
-                            BinLookupId = 1,
-                            FacilityId = 1,
-                            InventorySKU = "SP7875",
-                            ProductId = 1,
-                            Quantity = 20
-                        },
-                        new
-                        {
-                            InventoryId = 2,
-                            BinLookupId = 2,
-                            FacilityId = 2,
-                            InventorySKU = "TR87680",
-                            ProductId = 2,
-                            Quantity = 45
-                        },
-                        new
-                        {
-                            InventoryId = 3,
-                            BinLookupId = 2,
-                            FacilityId = 1,
-                            InventorySKU = "MK676554",
-                            ProductId = 1,
-                            Quantity = 15
-                        },
-                        new
-                        {
-                            InventoryId = 4,
-                            BinLookupId = 3,
-                            FacilityId = 2,
-                            InventorySKU = "YE98767",
-                            ProductId = 2,
-                            Quantity = 30
-                        },
-                        new
-                        {
-                            InventoryId = 5,
-                            BinLookupId = 4,
-                            FacilityId = 1,
-                            InventorySKU = "XR23423",
-                            ProductId = 1,
-                            Quantity = 10
-                        },
-                        new
-                        {
-                            InventoryId = 6,
-                            BinLookupId = 1,
-                            FacilityId = 2,
-                            InventorySKU = "PW98762",
-                            ProductId = 2,
-                            Quantity = 25
-                        },
-                        new
-                        {
-                            InventoryId = 7,
-                            BinLookupId = 3,
-                            FacilityId = 1,
-                            InventorySKU = "BM87684",
-                            ProductId = 1,
-                            Quantity = 20
-                        },
-                        new
-                        {
-                            InventoryId = 8,
-                            BinLookupId = 2,
-                            FacilityId = 2,
-                            InventorySKU = "BH67655",
-                            ProductId = 2,
-                            Quantity = 15
-                        },
-                        new
-                        {
-                            InventoryId = 9,
-                            BinLookupId = 1,
-                            FacilityId = 1,
-                            InventorySKU = "WT98768",
-                            ProductId = 1,
-                            Quantity = 50
-                        },
-                        new
-                        {
-                            InventoryId = 10,
-                            BinLookupId = 4,
-                            FacilityId = 2,
-                            InventorySKU = "TS3456",
-                            ProductId = 2,
-                            Quantity = 15
-                        },
-                        new
-                        {
-                            InventoryId = 11,
-                            BinLookupId = 1,
-                            FacilityId = 1,
-                            InventorySKU = "WDG123",
-                            ProductId = 1,
-                            Quantity = 20
                         });
                 });
 

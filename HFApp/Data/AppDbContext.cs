@@ -17,11 +17,12 @@ namespace HFApp.Data
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Facility> Facilities { get; set; }
         public DbSet<EmployeeFacility> EmployeeFacilities { get; set; }
-        public DbSet<Inventory> Inventories { get; set; }
+        
         public DbSet<Product> Products { get; set; }
         public DbSet<Sale> Sales { get; set; }
         public DbSet<SaleDetails> SaleDetails { get; set; }
         public DbSet<BinLookup> BinLookups { get; set; }
+        public DbSet<ProductInventory> ProductInventories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -121,6 +122,21 @@ namespace HFApp.Data
                    new BinLookup { BinLookupId = 6, BinNumber = "T5789", Description = "Large bin", Location = "Row 4, Slot 5", Width = 50, Height = 10, Length = 10 },
                    new BinLookup { BinLookupId = 7, BinNumber = "T9875", Description = "Large bin", Location = "Row 2, Slot 2", Width = 50, Height = 10, Length = 10 }
                );
+
+            modelBuilder.Entity<ProductInventory>().HasData(
+                   new ProductInventory { InventoryId = 1, InventorySKU = "SP7875", FacilityId = 1, ProductId = 1, BinLookupId = 1, Quantity = 20 },
+                   new ProductInventory { InventoryId = 2, InventorySKU = "TR87680", FacilityId = 2, ProductId = 2, BinLookupId = 2, Quantity = 45 },
+                   new ProductInventory { InventoryId = 3, InventorySKU = "MK676554", FacilityId = 1, ProductId = 1, BinLookupId = 2, Quantity = 15 },
+                   new ProductInventory { InventoryId = 4, InventorySKU = "YE98767", FacilityId = 2, ProductId = 2, BinLookupId = 3, Quantity = 30 },
+                   new ProductInventory { InventoryId = 5, InventorySKU = "XR23423", FacilityId = 1, ProductId = 1, BinLookupId = 4, Quantity = 10 },
+                   new ProductInventory { InventoryId = 6, InventorySKU = "PW98762", FacilityId = 2, ProductId = 2, BinLookupId = 1, Quantity = 25 },
+                   new ProductInventory { InventoryId = 7, InventorySKU = "BM87684", FacilityId = 1, ProductId = 1, BinLookupId = 3, Quantity = 20 },
+                   new ProductInventory { InventoryId = 8, InventorySKU = "BH67655", FacilityId = 2, ProductId = 2, BinLookupId = 2, Quantity = 15 },
+                   new ProductInventory { InventoryId = 9, InventorySKU = "WT98768", FacilityId = 1, ProductId = 1, BinLookupId = 1, Quantity = 50 },
+                   new ProductInventory { InventoryId = 10, InventorySKU = "TS3456", FacilityId = 2, ProductId = 2, BinLookupId = 4, Quantity = 15 },
+                   new ProductInventory { InventoryId = 11, InventorySKU = "WDG123", FacilityId = 1, ProductId = 1, BinLookupId = 1, Quantity = 20 }
+               );
+
         }
     }
 }
